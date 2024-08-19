@@ -1,7 +1,10 @@
-class Button:
-    def __init__(self, locator, page):
-        self.locator = locator
-        self.page = page
+from components.locator import Locator
 
-    def click(self):
-        self.page.click(self.locator)
+
+class Button(Locator):
+    # def __init__(self, locator, page):
+    #     self.locator = locator
+    #     self.page = page
+
+    async def click(self):
+        await self.get_locator().click()

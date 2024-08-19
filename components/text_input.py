@@ -1,7 +1,6 @@
-class TextInput:
-    def __init__(self, locator, page):
-        self.locator = locator
-        self.page = page
+from components.locator import Locator
 
-    def type(self, text):
-        self.page.fill(self.locator, text)
+
+class TextInput(Locator):
+    async def fill(self, text: str):
+        await self.get_locator().fill(text)
